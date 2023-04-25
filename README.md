@@ -1,8 +1,4 @@
-# airbase-project
-Mini projects and main project for my third year subject called Design and Analysis of Information Systems
-
-
-
+# Design and Analysis of Information Systems Projects
 ## MP 1
 MP_1 is the first mini-project from the course. It's purpose is to create a basic class structure which demonstrates the appropriate implementation of different types of attributes, as well as implementation of class extent and persistance. 
 
