@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MP_1/MP_1.iml" filepath="$PROJECT_DIR$/MP_1/MP_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MP_2/MP_2.iml" filepath="$PROJECT_DIR$/MP_2/MP_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MP_3/MP_3.iml" filepath="$PROJECT_DIR$/MP_3/MP_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/airbase-project.iml" filepath="$PROJECT_DIR$/.idea/airbase-project.iml" />
+    </modules>
+  </component>
+</project>
