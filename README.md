@@ -1,4 +1,4 @@
-# Design and Analysis of Information Systems Projects
+# Military Airbase Project
 ## MP 1
 MP_1 is the first mini-project from the course. It's purpose is to create a basic class structure which demonstrates the appropriate implementation of different types of attributes, as well as implementation of class extent and persistance. 
 
