@@ -14,3 +14,16 @@ Additionally, the program represents some method behaviour:
 
 - Class method
 - Method overriding and overloading
+
+## MP 2
+MP_2 is the second mini-project from the course. In this project the main task was to introduce assosiation between classes into the class structure. 
+
+The different types of assosiation implemented into the project are:
+
+- Basic assosiation
+- Assosiation with an attribute
+- Qualified assosiation
+- Composition
+
+## MP 3
+W.I.P
