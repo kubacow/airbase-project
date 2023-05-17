@@ -7,7 +7,7 @@ public class LandVehicle extends Vehicle{
     enum FuelTypes {
         DIESEL, GASOLINE, LPG
     }
-    private String vehicleFuelType;
+
     private boolean armoured;
 
     public LandVehicle(String registration, String name, LocalDate dateOfArrival, String usage, String description,
@@ -19,14 +19,15 @@ public class LandVehicle extends Vehicle{
         setUpFuelType(vehicleFuelType);
     }
 
-    private void setUpFuelType(String vehicleFuelType) throws Exception{
-
+    public void setUpFuelType(String vehicleFuelType) {
         try {
-            FuelTypes fuelTypes = FuelTypes.valueOf(vehicleFuelType.toUpperCase());
-            this.vehicleFuelType = vehicleFuelType;
+            LandVehicle.FuelTypes.valueOf(vehicleFuelType.toUpperCase());
+            setVehicleFuelType(vehicleFuelType);
         }
         catch (IllegalArgumentException e) {
             System.out.println("The fuel type " + vehicleFuelType + " isn't defined by the system.");
         }
     }
+
+
 }

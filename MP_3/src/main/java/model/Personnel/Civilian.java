@@ -7,8 +7,17 @@ public class Civilian extends Personnel implements ICivilian {
     private float salary;
     private String role;
 
-    public Civilian(String firstName, String lastName, LocalDate dateOfBirth, String personalIdentification, LocalDate dateOfRecruitment, float salary, String role) {
-        super(firstName, lastName, dateOfBirth, personalIdentification, dateOfRecruitment);
+    public Civilian(String firstName, String lastName, LocalDate dateOfBirth, String personalIdentification,
+                    LocalDate dateOfRecruitment, String sex, float salary, String role) {
+        super(firstName, lastName, dateOfBirth, personalIdentification, dateOfRecruitment, sex);
+        this.salary = salary;
+        this.role = role;
+    }
+
+    public Civilian(Personnel prevPersonnel, String firstName, String lastName, LocalDate dateOfBirth, String personalIdentification,
+                    LocalDate dateOfRecruitment, String sex, float salary, String role) {
+        super(prevPersonnel.firstName, prevPersonnel.lastName, prevPersonnel.dateOfBirth,
+                prevPersonnel.personalIdentification, prevPersonnel.dateOfRecruitment, prevPersonnel.sex);
         this.salary = salary;
         this.role = role;
     }

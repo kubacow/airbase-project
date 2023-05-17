@@ -10,14 +10,14 @@ public class PMC extends Military implements ICivilian {
     private String securityClearance;
 
     public PMC(String firstName, String lastName, LocalDate dateOfBirth, String personalIdentification,
-               LocalDate dateOfRecruitment, float salary, String role, String rank, String specialization,
+               LocalDate dateOfRecruitment, String sex, float salary, String role, String rank, String specialization,
                List<String> languages, String bloodType, String companyName, String securityClearance) {
         super(firstName, lastName, dateOfBirth, personalIdentification,
-                dateOfRecruitment, rank, specialization, languages, bloodType);
+                dateOfRecruitment, sex, rank, specialization, languages, bloodType);
         this.companyName = companyName;
         this.securityClearance = securityClearance;
         civilian = new Civilian(null, null, null, null, null,
-                                salary, role);
+                                null, salary, role);
     }
 
     @Override

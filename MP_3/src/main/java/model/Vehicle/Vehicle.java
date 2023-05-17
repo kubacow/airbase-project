@@ -20,6 +20,7 @@ public abstract class Vehicle {
     private LocalDate dateOfArrival;
     private String function;
     private String description;
+    private String vehicleFuelType;
     private Base base;
     protected List<MissionHistory> missionHistory = new ArrayList<>();
 
@@ -52,4 +53,6 @@ public abstract class Vehicle {
     public void addMissionHistory(MissionHistory missionHistory) {}
 
     public void removeMissionHistory(MissionHistory missionHistory) {}
+
+    private void setUpFuelType(String vehicleFuelType) throws Exception{}
 }

@@ -7,6 +7,10 @@ public class AirVehicle extends Vehicle {
     enum Propulsion {
         PROPELLER, JET
     }
+
+    enum FuelTypes {
+        AVGAS, JETFUEL, DIESEL
+    }
     private String name;
     private String propulsion;
 
@@ -25,6 +29,16 @@ public class AirVehicle extends Vehicle {
         }
         catch (IllegalArgumentException e) {
             System.out.println("The propulsion type " + propulsion + " isn't defined by the system.");
+        }
+    }
+
+    public void setUpFuelType(String vehicleFuelType) {
+        try {
+            LandVehicle.FuelTypes.valueOf(vehicleFuelType.toUpperCase());
+            setVehicleFuelType(vehicleFuelType);
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("The fuel type " + vehicleFuelType + " isn't defined by the system.");
         }
     }
 }
