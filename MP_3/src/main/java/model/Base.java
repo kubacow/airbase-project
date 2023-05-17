@@ -2,11 +2,10 @@ package model;
 
 import lombok.Getter;
 import lombok.Setter;
+import model.Buildings.Building;
+import model.Vehicle.Vehicle;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -19,29 +18,29 @@ public class Base implements Serializable {
     private String name;
     private double perimeter; // square kilometers
     private Map<Double, Localization> localizations = new HashMap<>();
-    private static final String regionalCertification = "PLMAB"; // Poland Military Aerial models.Base
+    private static final String regionalCertification = "PLMAB"; // Poland Military Aerial Base
     private String airDefenceUnit;
-    private Set<String> stationedBranches = new HashSet<>();
+    private List<MilitaryUnit> militaryUnits;
     private LocalDate openingDate;
     private LocalDate closedDate;
     private List<Vehicle> vehicles = new ArrayList<>();
     private List<Building> buildings = new ArrayList<>();
 
-    public Base(String name, double perimeter, String airDefenceUnit, Set<String> stationedBranches, LocalDate openingDate) {
+    public Base(String name, double perimeter, String airDefenceUnit, List<MilitaryUnit> stationedBranches, LocalDate openingDate) {
         this.name = name;
         this.perimeter = perimeter;
         this.airDefenceUnit = airDefenceUnit;
-        this.stationedBranches = stationedBranches;
+        this.militaryUnits = stationedBranches;
         this.openingDate = openingDate;
 
         extent.add(this);
     }
 
-    public Base(String name, double perimeter, String airDefenceUnit, Set<String> stationedBranches, LocalDate openingDate, LocalDate closedDate) {
+    public Base(String name, double perimeter, String airDefenceUnit, List<MilitaryUnit> stationedBranches, LocalDate openingDate, LocalDate closedDate) {
         this.name = name;
         this.perimeter = perimeter;
         this.airDefenceUnit = airDefenceUnit;
-        this.stationedBranches = stationedBranches;
+        this.militaryUnits = stationedBranches;
         this.openingDate = openingDate;
         this.closedDate = closedDate;
 
@@ -89,7 +88,7 @@ public class Base implements Serializable {
 
         for (Base base : extent) {
             if (base.getBuildings().contains(building)) {
-                throw new Exception("models.Building is in another base.");
+                throw new Exception("model.Buildings.Building is in another base.");
             }
         }
         buildings.add(building);
@@ -115,9 +114,9 @@ public class Base implements Serializable {
     public String toString() {
         String str =  regionalCertification + "-" + getName() + " data:\n" +
                 "Perimeter: " + getPerimeter() +
-                "\nmodels.Localization: \n\t" + getLocalizations() +
-                "\nAir Defence Unit: " + getAirDefenceUnit() +
-                "\nStationed Branches: " + getStationedBranches() +
+                "\nmodel.Localization: \n\t" + getLocalizations() +
+                "\nAir Defence model.Unit: " + getAirDefenceUnit() +
+                "\nStationed Branches: " + getMilitaryUnits() +
                 "\nOpening Date: " + getOpeningDate() +
                 "\nTime Since Opening Date: " + getLengthOfTimeSince();
 

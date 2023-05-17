@@ -1,6 +1,8 @@
-package model;
+package model.Vehicle;
 
 import lombok.*;
+import model.Base;
+import model.Mission.MissionHistory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,23 +12,26 @@ import java.util.List;
 @Setter
 @ToString(exclude = {"base"})
 
-public class Vehicle {
+public abstract class Vehicle {
 
+    private static List<Vehicle> extent = new ArrayList<>();
     private String registration;
     private String name;
     private LocalDate dateOfArrival;
-    private String usage;
+    private String function;
     private String description;
     private Base base;
-    private List<MissionHistory> missionHistory = new ArrayList<>();
+    protected List<MissionHistory> missionHistory = new ArrayList<>();
+
 
     public Vehicle(String registration, String name, LocalDate dateOfArrival, String usage, String description) {
         this.registration = registration;
         this.name = name;
         this.dateOfArrival = dateOfArrival;
-        this.usage = usage;
+        this.function = usage;
         this.description = description;
-        this.base = base;
+
+        extent.add(this);
 
     }
 
@@ -44,13 +49,7 @@ public class Vehicle {
         }
     }
 
-    public void addMissionHistory(MissionHistory missionHistory) {
-        this.missionHistory.add(missionHistory);
-        missionHistory.addVehicle(this);
-    }
+    public void addMissionHistory(MissionHistory missionHistory) {}
 
-    public void removeMissionHistory(MissionHistory missionHistory) {
-        this.missionHistory.remove(missionHistory);
-        missionHistory.removeVehicle(this);
-    }
+    public void removeMissionHistory(MissionHistory missionHistory) {}
 }
